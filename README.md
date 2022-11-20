@@ -1,8 +1,10 @@
 # Image-Processing-API
 ## Core libraries 
 - node-js
+- typescript
 - express
 - jasmine
+- [sharp](https://www.npmjs.com/package/sharp)
 
 ## What the API do?
 - serve server-side images
