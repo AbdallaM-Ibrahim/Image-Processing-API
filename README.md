@@ -16,3 +16,21 @@
 ```ts
 GET `/images?file=${filename}[&width=${width}&height=${height}]`
 ```
+## Scripts
+- build 
+  ```
+  npm run build
+  ```
+- testing
+```
+npm test
+```
+- run from /src
+```
+npm start
+```
+- run from build
+```
+npm run /build
+node .
+```
