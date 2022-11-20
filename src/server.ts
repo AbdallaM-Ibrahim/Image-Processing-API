@@ -1,5 +1,5 @@
 import express from 'express';
-import images from './routes/image';
+import images from './routes/images';
 
 const app = express();
 const PORT: number = (process.env.PORT as unknown as number) || 3000;
