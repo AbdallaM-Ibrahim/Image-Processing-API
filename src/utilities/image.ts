@@ -3,10 +3,15 @@ import sizeOf from 'image-size';
 import path from 'path';
 import fs from 'fs';
 
+const FULL_DIR = path.join(process.cwd(), 'assets', 'full')
+const THUMB_DIR = path.join(process.cwd(), 'assets', 'thumb')
+if(!fs.existsSync(FULL_DIR)) fs.mkdirSync(FULL_DIR)
+if(!fs.existsSync(THUMB_DIR)) fs.mkdirSync(THUMB_DIR)
+
 export const fullPath = (filename: string) =>
-  path.join(process.cwd(), 'assets', 'full', filename);
+  path.join(FULL_DIR, filename);
 export const thumbPath = (filename: string) =>
-  path.join(process.cwd(), 'assets', 'thumb', filename);
+  path.join(THUMB_DIR, filename);
 
 export const fileExists = (filename: string) =>
   fs.existsSync(fullPath(filename));
