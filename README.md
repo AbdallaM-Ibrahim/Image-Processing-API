@@ -22,15 +22,15 @@ GET `/images?file=${filename}[&width=${width}&height=${height}]`
   npm run build
   ```
 - testing
-```
-npm test
-```
+  ```
+  npm test
+  ```
 - run from /src
-```
-npm start
-```
+  ```
+  npm start
+  ```
 - run from build
-```
-npm run /build
-node .
-```
+  ```
+  npm run /build
+  node .
+  ```
