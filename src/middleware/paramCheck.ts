@@ -18,23 +18,25 @@ export const imagesCheck = (
       );
 
   if (!image.fileExists(filename))
-    return res.status(400).send(`Couldn't find file: ${filename}`);
+    return res.status(400).send(`Couldn't find file with name: ${filename}`);
 
   if (width)
     try {
-      if (parseInt(width) <= 0)
-        throw new Error(`negative value for width: ${width}`);
-    } catch {
-      req.query.width = undefined;
+      const widthNum = parseInt(width)
+      if (isNaN(widthNum) || parseInt(width) <= 0)
+        throw new Error(`Value of width should be positive number received: ${width}`);
+    } catch(e) {
+      return res.status(400).send((<Error>e).message + '<br />  ' + `Your value should be a number and positive`);
     }
 
   if (height)
     try {
-      if (parseInt(height) <= 0)
-        throw new Error(`negative value for height: ${height}`);
-    } catch {
-      req.query.height = undefined;
-    }
+      const heightNum = parseInt(height)
+      if (isNaN(heightNum) || heightNum <= 0)
+        throw new Error(`Value of height should be positive number received: ${height}`);
+      } catch(e) {
+        return res.status(400).send((<Error>e).message + '<br />  ' + `Your value should be a number and positive`);
+      }
 
   next();
 };
