@@ -3,17 +3,17 @@ import sizeOf from 'image-size';
 import path from 'path';
 import fs from 'fs';
 
-const FULL_DIR = path.join(process.cwd(), 'assets', 'full')
-const THUMB_DIR = path.join(process.cwd(), 'assets', 'thumb')
-if(!fs.existsSync(FULL_DIR)) fs.mkdirSync(FULL_DIR)
-if(!fs.existsSync(THUMB_DIR)) fs.mkdirSync(THUMB_DIR)
+const FULL_DIR = path.join(process.cwd(), 'assets', 'full');
+const THUMB_DIR = path.join(process.cwd(), 'assets', 'thumb');
+if (!fs.existsSync(FULL_DIR)) fs.mkdirSync(FULL_DIR);
+if (!fs.existsSync(THUMB_DIR)) fs.mkdirSync(THUMB_DIR);
 
-export const fullPath = (filename: string) =>
+export const fullPath = (filename: string): string =>
   path.join(FULL_DIR, filename);
-export const thumbPath = (filename: string) =>
+export const thumbPath = (filename: string): string =>
   path.join(THUMB_DIR, filename);
 
-export const fileExists = (filename: string) =>
+export const fileExists = (filename: string): boolean =>
   fs.existsSync(fullPath(filename));
 
 export const resize = async (
@@ -32,7 +32,7 @@ export const isCached = (
   newHeight: number | undefined
 ): boolean => {
   const filePath = thumbPath(filename);
-  if(!fs.existsSync(filePath)) return false;
+  if (!fs.existsSync(filePath)) return false;
   const { width: cachedWidth, height: cachedHeight } = sizeOf(filePath);
   return cachedWidth === newWidth && cachedHeight === newHeight;
 };
